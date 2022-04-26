@@ -6,9 +6,12 @@ import Chat from './Chat';
 function App() {
   return (
     <div className="App">
-      <h1>Mern Build</h1>
+      
+      <div className="App_body">
        <SelectBar/>
        <Chat/>
+      </div>
+
       
     </div>
 
