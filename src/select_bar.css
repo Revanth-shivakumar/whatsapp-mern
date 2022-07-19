@@ -32,7 +32,12 @@ margin:10px;
 }
 .selectbar_search_space>input{
     border:none;
-    outline-width: 0;
+    outline-width: 0;/*gets rid of blue outline*/ 
     margin-left: 10px;
+}
+.selectbar{
+    
+    overflow-y: scroll;
+    background-color: azure;
 }
 

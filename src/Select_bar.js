@@ -6,6 +6,8 @@ import ChatIcon from '@mui/icons-material/Chat';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Avatar } from '@mui/material';
 import { SearchOutlined } from '@mui/icons-material';
+import SelectBarChat from './SelectBarChat';
+
 
 function SelectBar() {
   return (
@@ -36,6 +38,12 @@ function SelectBar() {
            <input placeholder='Search or Start new chat' type='text'/>
            
        </div>
+        
+      </div>
+      <div className="selectbar_chats">
+        <SelectBarChat/>
+        <SelectBarChat/>
+        <SelectBarChat/>
         
       </div>
 
