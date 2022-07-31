@@ -1,10 +1,21 @@
 import { AttachFile, InsertEmoticon, MoreVert, SearchOutlined } from '@mui/icons-material';
 import MicIcon from '@mui/icons-material/Mic';
 import { Avatar, IconButton } from '@mui/material';
-import React from 'react'
+import React, { useState } from 'react'
 import './Chat.css';
+import axios from './axios';
 
-function Chat() {
+function Chat({messages}) {
+  const [input,setInput]=useState('')
+  const sendMessages=async(e)=>{
+    e.preventDefault();
+    await axios.post('/messages/new',{
+      message:input,
+      name:"Demo",
+      timeStamp:"Just now",
+      received:false,
+    })
+  }
   return (
     <div className='chat'>
        
@@ -32,7 +43,15 @@ function Chat() {
       </div>
       <div className='chat_body'>
 
-         
+          {messages.map((message)=>(
+            <p className={`chat_message ${message.received && "chat_receiver"}`}>
+          <span className='chat_name'>{message.name}</span>
+          {message.message}
+          <span className='chat_time'>
+            {new Date().toUTCString()}
+          </span>
+          </p>
+))}
           {/* try converting this into a component */}
             <p className='chat_message'>
           <span className='chat_name'>Mark</span>
@@ -57,8 +76,11 @@ function Chat() {
         <InsertEmoticon/>
         <form>
 
-          <input placeholder='Type a Message ...' type="text"/>
-          <button  type="submit">
+          <input value={input}
+           onChange={e=>setInput(e.target).value}
+           placeholder='Type a Message ...'
+            type="text"/>
+          <button onClick={sendMessages}  type="submit">
 
             Send
           </button>
