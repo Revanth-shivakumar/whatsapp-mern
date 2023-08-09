@@ -16,7 +16,7 @@ const pusher = new Pusher({
 
 
 
-const connection_url='mongodb+srv://Rv:cRX62k1An6DrRPyf@cluster0.mujef41.mongodb.net/?retryWrites=true&w=majority'
+const connection_url=
 mongoose.connect(connection_url,{
      useNewUrlParser:true,
      useUnifiedTopology:true
